@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class InfinityFollowing : MonoBehaviour
 {
+    public float Percent;
     Transform camTransf;
     float TextureWidth;
     private void Awake()
@@ -15,7 +16,7 @@ public class InfinityFollowing : MonoBehaviour
     }
     void LateUpdate()
     {
-        if(camTransf.position.x -transform.position.x >= TextureWidth)
+        if(camTransf.position.x -transform.position.x >= TextureWidth*Percent)
         {
             float xoffset = (camTransf.position.x - transform.position.x) % TextureWidth;
             transform.position = new Vector3(camTransf.position.x + xoffset, transform.position.y);
